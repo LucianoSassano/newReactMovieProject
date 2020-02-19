@@ -2,6 +2,9 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 
 class Home extends React.Component{
+    constructor(props){
+        super(props)
+    }
 
     
 
@@ -9,7 +12,7 @@ class Home extends React.Component{
         return(
         <NavBar />
 
-            // aca se van a mostrar las tarjetas con las movies
+        
 
         )
     }

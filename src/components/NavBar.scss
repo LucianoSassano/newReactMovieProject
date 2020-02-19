@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  .navbar-brand {
+    margin-left: -150px;
+    img {
+      margin: 0 30px;
+    }
+  }
+
+  #search-bar {
+      margin-left: 30%;
+  }
+  ul {
+    margin-left: 50%;
+
+    .nav-item {
+      margin: 0 30px;
+    }
+  }
+}

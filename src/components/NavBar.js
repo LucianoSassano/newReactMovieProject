@@ -1,5 +1,6 @@
 import React from "react";
 import MovieLogo from "../images/movie-logo.png";
+import "../components/NavBar.css"
 
 class Navbar extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class Navbar extends React.Component {
             <a className="navbar-brand" href="./Home">
               <img src={MovieLogo} width="50" height="50" alt="page icon"></img>
             </a>
-            <form class="form-inline">
+            <form class="form-inline" id="search-bar">
               <input
                 class="form-control mr-sm-2"
                 type="search"

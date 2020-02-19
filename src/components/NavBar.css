@@ -1,0 +1,29 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav .navbar-brand {
+  margin-left: -150px;
+}
+
+nav .navbar-brand img {
+  margin: 0 30px;
+}
+
+nav #search-bar {
+  margin-left: 30%;
+}
+
+nav ul {
+  margin-left: 50%;
+}
+
+nav ul .nav-item {
+  margin: 0 30px;
+}
+/*# sourceMappingURL=NavBar.css.map */

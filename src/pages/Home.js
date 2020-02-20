@@ -1,16 +1,20 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import MovieContent from '../components/MoviesContent'
 
 class Home extends React.Component{
+    constructor(props){
+        super(props)
+    }
 
     
 
     render(){
         return(
+        <>
         <NavBar />
-
-            // aca se van a mostrar las tarjetas con las movies
-
+        <MovieContent/>
+        </>
         )
     }
 }

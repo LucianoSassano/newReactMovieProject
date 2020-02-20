@@ -11,8 +11,7 @@ export default class Card extends React.Component {
         <div className="row">
           <div className="movie-image">
             <img
-              src={require("https://image.tmdb.org/t/p/w185" +
-                this.props.img)}
+              src={this.props.img}
               alt="my movie image"
             />
           </div>
@@ -20,7 +19,9 @@ export default class Card extends React.Component {
           <div className="movie-overview">
             <p>{this.props.overview}</p>
           </div>
-    <div><p>{this.props.release}</p></div>
+          <div>
+            <p>{this.props.release}</p>
+          </div>
         </div>
       </div>
     );

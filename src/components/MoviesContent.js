@@ -7,10 +7,11 @@ export default class MovieContent extends React.Component {
       page: [],
       results: []
     };
+    this.handleSearchValue = this.handleSearchValue.bind(this);
   }
 
   componentDidMount() {
-    this.performSearch("batman");
+    this.performSearch("avengers");
   }
 
   performSearch = async searchTerm => {
@@ -34,7 +35,7 @@ export default class MovieContent extends React.Component {
 
   handleSearchValue() {
     const searchTerm = this.props.search;
-    this.performSearch(searchTerm);
+    return searchTerm;
   }
 
   render() {
@@ -43,24 +44,30 @@ export default class MovieContent extends React.Component {
       <div className="container">
         {results &&
           results.map((movie, key) => (
-            <div className="row">
-              <Fragment key={key}>
-                <div className="col">
-                  <img
-                    src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
-                  ></img>
-                </div>
-                <div className="col">
-                  <h1>{movie.title}</h1>
-                  <div>
-                    <p>{movie.overview}</p>
+            <Fragment key={key}>
+              <div class="card mb-3" style={{ maxWidth: "540px" }}>
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w200" + movie.poster_path
+                      }
+                      alt="poster"
+                      class="card-img"
+                    />
                   </div>
-                  <div>
-                    <p>Release date : {movie.release_date}</p>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{movie.title}</h5>
+                      <p class="card-text">{movie.overview}</p>
+                      <p class="card-text">
+                        <small class="text-muted">{movie.release_date}</small>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Fragment>
-            </div>
+              </div>
+            </Fragment>
           ))}
       </div>
     );

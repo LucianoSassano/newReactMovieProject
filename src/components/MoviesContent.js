@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import $ from "jquery";
+
 
 export default class MovieContent extends React.Component {
   constructor(props) {
@@ -7,12 +7,15 @@ export default class MovieContent extends React.Component {
     this.state = {
       page: [],
       results: []
+      
     };
+    
+  }
+
+  componentDidMount(){
+    this.performSearch("woman")
   }
   
-  componentDidMount() {
-    this.performSearch("avengers");
-  }
 
   performSearch = async (searchTerm) => {
     console.log("Performing search");
@@ -21,7 +24,7 @@ export default class MovieContent extends React.Component {
       searchTerm;
 
       try{
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=16e4c7896761f5945c9296a93ce5703f&query=avengers`)
+        const response = await fetch(urlString)
         const resJson = response.json()
         const {results} = await resJson
         

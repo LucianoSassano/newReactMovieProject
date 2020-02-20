@@ -24,7 +24,7 @@ class Home extends React.Component {
           onSearch={(e)=> this.handleSearch(e.target.value) }
           search={this.state.search}
         />
-        <MovieContent queryValue = {this.state.search}/>
+        <MovieContent queryValue={this.state.search}/>
       </>
     );
   }

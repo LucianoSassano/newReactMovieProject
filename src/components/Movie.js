@@ -7,7 +7,9 @@ export default class Movie extends  React.Component{
 
     render(){
         return(
-            <div className="movie-container"></div>
+            <div className="movie-container">
+                
+            </div>
 
         );
     }

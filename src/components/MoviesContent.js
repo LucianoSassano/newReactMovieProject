@@ -14,28 +14,6 @@ export default class MovieContent extends React.Component {
     this.performSearch("avengers");
   }
 
-  // performSearch(searchTerm) {
-  //   console.log("Performing search");
-  //   const urlString =
-  //     "https://api.themoviedb.org/3/search/movie?api_key=16e4c7896761f5945c9296a93ce5703f&query=" +
-  //     searchTerm;
-  //   $.ajax({
-  //     url: urlString,
-  //     success: searchResults => {
-  //       console.log("performed succesfully");
-  //       const results = searchResults.results;
-  //       console.log(results);
-        
-  //       this.setState({
-  //         results: results,
-  //       })
-  //     },
-  //     error: (xhr, status, err) => {
-  //       console.error("failed to fetch data");
-  //     }
-  //   });
-  // }
-
   performSearch = async (searchTerm) => {
     console.log("Performing search");
     const urlString =
@@ -62,11 +40,9 @@ export default class MovieContent extends React.Component {
       <div className="container">
         {results && results.map((movie, key) => (
           <Fragment key={key}>
-          {console.log('ddasadsads', movie.title)
-          }
             <img
               src={
-                "https://image.tmdb.org/t/p/w500" + movie.poster_path}
+                "https://image.tmdb.org/t/p/w200" + movie.poster_path}
             ></img>
             <h1>{movie.title}</h1>
             <div>

@@ -1,7 +1,6 @@
 import React from "react";
 import MovieLogo from "../images/movie-logo.png";
 
-
 class Navbar extends React.Component {
   render() {
     return (
@@ -17,13 +16,9 @@ class Navbar extends React.Component {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={this.props.search}
+                onChange={this.props.onSearch}
               />
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
             </form>
             <button
               className="navbar-toggler"
@@ -44,11 +39,6 @@ class Navbar extends React.Component {
                 <li className="nav-item active">
                   <a className="nav-link" href="./Home">
                     Home{" "}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="./Home">
-                    Movies
                   </a>
                 </li>
                 <li className="nav-item">

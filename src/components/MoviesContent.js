@@ -10,7 +10,7 @@ export default class MovieContent extends React.Component {
       page: [],
       results: []
     };
-    this.performSearch();
+    this.performSearch("avengers");
   }
 
   performSearch(searchTerm) {
@@ -23,7 +23,7 @@ export default class MovieContent extends React.Component {
       success: searchResults => {
         console.log("performed succesfully");
         const results = searchResults.results;
-
+        console.log(searchResults)
         results.forEach(movie => {
           console.log(movie.title);
         });

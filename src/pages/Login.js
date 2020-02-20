@@ -43,15 +43,16 @@ class Login extends React.Component {
       // console.log("DATA", data);
       // var jsonCant = JSON.stringify( myJson.lenght);
 
+      const {users} = this.state;
       this.setState({
-      [this.state.users] : myJson
-      });
+        users: myJson
+      })
 
+      console.log("ACAAAA", users);
+      
       /// https://www.google.com/search?q=setstate+json&oq=setstate+json&aqs=chrome..69i57j0l7.3505j0j7&sourceid=chrome&ie=UTF-8
       /// https://www.freecodecamp.org/forum/t/reactjs-using-setstate-to-update-a-single-property-on-an-object/146772/3
       
-
-      console.log("asdfafa", this.state.users);
       
     });
 

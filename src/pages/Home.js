@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import MovieContent from '../components/MoviesContent'
 
 class Home extends React.Component{
     constructor(props){
@@ -10,8 +11,10 @@ class Home extends React.Component{
 
     render(){
         return(
+        <>
         <NavBar />
-
+        <MovieContent/>
+        </>
         )
     }
 }

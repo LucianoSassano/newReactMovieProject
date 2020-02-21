@@ -13,7 +13,7 @@ class Login extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  //  this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -28,45 +28,50 @@ class Login extends React.Component {
     // this.state.password = event.target.value;
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  // handleSubmit(event) {
+  //   event.preventDefault();
     
-    // buscar el mail y la contrase;a que est;an en el estado, dentro del arreglo de users
-    
-    fetch("http://localhost:3000/users.json")
-    .then(function(response) {
-      return response.json();
+  
+  //   fetch("http://localhost:3000/users.json")
+  //   .then(function(response) {
+  //     return response.json();
       
-    })
-    .then(function(myJson) {
+  //   })
+  //   .then(function(myJson) {
 
-       var data = myJson;
-      console.log("DATA", data);
+  //      var data = myJson;
+  //     console.log("DATA", data);
 
-      data.map((datos) => {
-        this.users.setState({
-          users: datos.email,
-          users: datos.password
+  //     data.map((datos) => {
+  //       this.state.setState({
+  //         users: datos.email,
+  //         users: datos.password
+  //       })
+
+
+  //       console.log("DATOS", this.state.users);
+  //     })}
+
+
+  //   )}
+
+
+
+
+    componentWillMount() {
+      
+      fetch('http://localhost:3000/users.json')
+        .then((response) => {
+          return response.json()
         })
-
-
-        console.log("DATOS", this.state.users);
-      })}
-      
-
-      // const personas = this.users.map(data);
-      // const {users} = this.state;
-      // this.setState({
-      //   users: myJson
-      // })
-
-
-    //   console.log("ACAAAA", personas);
-      
-    // });
-
-
-    )}
+        .then((users) => {
+          this.setState({ users: users })
+          console.log("Se cargaron", users);
+          console.log("Email", users[0].email);
+          
+        })
+    
+      }
 
 
 
@@ -75,7 +80,7 @@ class Login extends React.Component {
     return (
       <>
         <NavBar />
-        <form className="form-class" onSubmit={this.handleSubmit}>
+        <form className="form-class" onSubmit={this.componentWillMount}>
           <div className="col-auto">
             <div className="form-group">
               <label for="exampleInputEmail1">Email</label>

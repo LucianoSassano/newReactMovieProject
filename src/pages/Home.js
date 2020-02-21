@@ -1,49 +1,58 @@
-import React, { Children } from "react";
+import React, { Children, useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import MovieContent from "../components/MoviesContent";
 import { getBySearch } from "../services/movieApi";
 
-class Home extends React.Component {
-  state = {
-    search: "avengers",
-    results: []
-  };
+const Home = () => {
+  const [ search, setSearch ] = useState("avengers")
+  const [ results, setResults ] = useState( [] )
 
    
-  componentDidMount(){
+  // componentDidMount {
 
-    getBySearch(this.state.search)
+  //   getBySearch(search)
+  //     .then(results => {
+  //       console.log("result", results);
+  //       setResults( results );
+  //       const jsonMovie = JSON.stringify(results)
+  //       localStorage.setItem("movies",jsonMovie)
+  //     })
+  //     .catch(err => console.log(err));
+  // }
+  
+  useEffect( () => {
+    getBySearch(search)
       .then(results => {
-        console.log("result", results);
-        this.setState({ results: results });
+        setResults( results );
         const jsonMovie = JSON.stringify(results)
         localStorage.setItem("movies",jsonMovie)
       })
       .catch(err => console.log(err));
-  }
-  
+  }, [ search ] )
 
-
-
-  handleSubmit(e) {
-    console.log(e.target.value());
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
     //this.setState({ search: value });
   }
 
+  const handleSearch = (e) => {
+    
+    console.log(e.target.value)
+    const currentVal = e.target.value;
+    setSearch(currentVal)
+  }
 
 
-
-
-  render() {
     return (
       <>
         <NavBar
-          onSubmit={(e) => this.handleSubmit(e)}
+          onSubmit={handleSubmit}
+          onChange ={handleSearch}
         />
-        <MovieContent results={this.state.results} />
+        <MovieContent results={results} />
       </>
     );
-  }
 }
 
 export default Home;

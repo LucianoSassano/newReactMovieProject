@@ -2,10 +2,10 @@ import React from "react";
 import MovieLogo from "../images/movie-logo.png";
 
 class Navbar extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
   }
-  
+
   render() {
     return (
       <>
@@ -14,16 +14,24 @@ class Navbar extends React.Component {
             <a className="navbar-brand" href="./Home">
               <img src={MovieLogo} width="50" height="50" alt="page icon"></img>
             </a>
-            <form onSubmit={this.props.onSubmit} className="form-inline" id="search-bar">
+            <form
+              onChange={this.props.onChange}
+              onSubmit={this.props.onSubmit}
+              className="form-inline"
+              id="search-bar"
+            >
               <input
                 className="form-control mr-sm-2"
                 type="text"
-                placeholder="Search" 
+                placeholder="Search"
                 aria-label="Search"
-                /*value={this.props.search}
-                onChange={this.props.onSearch}*/
               />
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
             </form>
             <button
               className="navbar-toggler"

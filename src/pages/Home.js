@@ -1,42 +1,44 @@
-import React from "react";
+import React, { Children } from "react";
 import NavBar from "../components/NavBar";
 import MovieContent from "../components/MoviesContent";
+import { getBySearch } from "../services/movieApi";
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
-    search: ""
+    search: "avengers",
+    results: []
   };
 
+   
+  componentDidMount(){
 
-  handleSearch(value){
-    console.log(value);
-    
-    this.setState({search : value});
+    getBySearch(this.state.search)
+      .then(results => {
+        console.log("result", results);
+        this.setState({ results: results });
+        const jsonMovie = JSON.stringify(results)
+        localStorage.setItem("movies",jsonMovie)
+      })
+      .catch(err => console.log(err));
+  }
+  
+
+
+
+  handleSubmit(e) {
+    console.log(e.target.value());
+    //this.setState({ search: value });
   }
 
 
-    render(){
-        return(
-        <>
-        
-        <NavBar />
-        <h1>home</h1>
-        <MovieContent/>
-        </>
-        )
-    }
 
   render() {
     return (
       <>
         <NavBar
-          onSearch={(e)=> this.handleSearch(e.target.value) }
-          search={this.state.search}
+          onSubmit={(e) => this.handleSubmit(e)}
         />
-        <MovieContent queryValue={this.state.search}/>
+        <MovieContent results={this.state.results} />
       </>
     );
   }

@@ -9,19 +9,14 @@ export default class MovieContent extends React.Component {
       results: []
       
     };
-    
-  }
 
-  componentDidMount(){
-    this.performSearch("woman")
-  }
-  
 
   performSearch = async (searchTerm) => {
     console.log("Performing search");
     const urlString =
       "https://api.themoviedb.org/3/search/movie?api_key=16e4c7896761f5945c9296a93ce5703f&query=" +
       searchTerm;
+
 
       try{
         const response = await fetch(urlString)
@@ -34,6 +29,7 @@ export default class MovieContent extends React.Component {
         })
       } catch(err) {
         console.error('fail')
+
       }
   }
 

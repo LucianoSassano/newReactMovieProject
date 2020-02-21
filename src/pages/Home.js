@@ -17,6 +17,18 @@ class Home extends React.Component {
     this.setState({search : value});
   }
 
+
+    render(){
+        return(
+        <>
+        
+        <NavBar />
+        <h1>home</h1>
+        <MovieContent/>
+        </>
+        )
+    }
+
   render() {
     return (
       <>
@@ -28,6 +40,7 @@ class Home extends React.Component {
       </>
     );
   }
+>
 }
 
 export default Home;

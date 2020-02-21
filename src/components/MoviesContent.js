@@ -5,17 +5,30 @@ export default class MovieContent extends React.Component {
     super(props);
     this.state = {
       page: [],
-      results: []
+      results: [],
+      initial_state: "avengers",
+      flag:0
     };
-    this.handleSearchValue = this.handleSearchValue.bind(this);
   }
 
   componentDidMount() {
-    this.performSearch("avengers");
+    this.performSearch(this.state.initial_state);
   }
+
+ /* shouldComponentUpdate(nextProps,nextState) {
+    if(nextState.flag === this.state.flag){
+      return false;
+    }else{
+      return true;
+    }
+   
+  }*/
+
+
 
   performSearch = async searchTerm => {
     console.log("Performing search");
+
     const urlString =
       "https://api.themoviedb.org/3/search/movie?api_key=16e4c7896761f5945c9296a93ce5703f&query=" +
       searchTerm;
@@ -24,6 +37,7 @@ export default class MovieContent extends React.Component {
       const response = await fetch(urlString);
       const resJson = response.json();
       const { results } = await resJson;
+      this.setState({flag : 1})
 
       this.setState({
         results
@@ -33,11 +47,6 @@ export default class MovieContent extends React.Component {
     }
   };
 
-  handleSearchValue() {
-    const searchTerm = this.props.search;
-    return searchTerm;
-  }
-
   render() {
     const { results } = this.state;
     return (
@@ -45,23 +54,25 @@ export default class MovieContent extends React.Component {
         {results &&
           results.map((movie, key) => (
             <Fragment key={key}>
-              <div class="card mb-3" style={{ maxWidth: "540px" }}>
-                <div class="row no-gutters">
-                  <div class="col-md-4">
+              <div className="card mb-3" style={{ maxWidth: "540px" }}>
+                <div className="row no-gutters">
+                  <div className="col-md-4">
                     <img
                       src={
                         "https://image.tmdb.org/t/p/w200" + movie.poster_path
                       }
                       alt="poster"
-                      class="card-img"
+                      className="card-img"
                     />
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">{movie.title}</h5>
-                      <p class="card-text">{movie.overview}</p>
-                      <p class="card-text">
-                        <small class="text-muted">{movie.release_date}</small>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title">{movie.title}</h5>
+                      <p className="card-text">{movie.overview}</p>
+                      <p className="card-text">
+                        <small className="text-muted">
+                          {movie.release_date}
+                        </small>
                       </p>
                     </div>
                   </div>

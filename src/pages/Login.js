@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import "../pages/Login.css";
+import { Redirect } from "react-router-dom"
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,11 +10,12 @@ class Login extends React.Component {
     this.state = {
       users: [],
       email: "",
-      password: ""
+      password: "",
+      isLogin: false
     };
 
     this.handleChange = this.handleChange.bind(this);
-  //  this.handleSubmit = this.handleSubmit.bind(this);
+   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -28,62 +30,45 @@ class Login extends React.Component {
     // this.state.password = event.target.value;
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-    
-  
-  //   fetch("http://localhost:3000/users.json")
-  //   .then(function(response) {
-  //     return response.json();
-      
-  //   })
-  //   .then(function(myJson) {
+  handleSubmit(event) {
+    event.preventDefault()
+    fetch('http://localhost:3000/users.json')
+    .then((response) => {
+      return response.json()
+    })
+    .then((users) => {
+      // this.setState({ users: users })
+      // console.log("Se cargaron", users);
+      // console.log("Email", users[0].email);
+      users.forEach( user  => {
+        if (user.email === this.state.email && user.password === this.state.password)
+          this.state.isLogin = true
+      });
+    })
 
-  //      var data = myJson;
-  //     console.log("DATA", data);
-
-  //     data.map((datos) => {
-  //       this.state.setState({
-  //         users: datos.email,
-  //         users: datos.password
-  //       })
-
-
-  //       console.log("DATOS", this.state.users);
-  //     })}
-
-
-  //   )}
+  }
 
 
 
 
     componentWillMount() {
+    }
       
-      fetch('http://localhost:3000/users.json')
-        .then((response) => {
-          return response.json()
-        })
-        .then((users) => {
-          this.setState({ users: users })
-          console.log("Se cargaron", users);
-          console.log("Email", users[0].email);
-          
-        })
-    
-      }
+
 
 
 
 
   render() {
+    if ( this.state.isLogin )
+      return <Redirect to={'/'} />
     return (
       <>
         <NavBar />
-        <form className="form-class" onSubmit={this.componentWillMount}>
+        <form className="form-class" onSubmit={this.handleSubmit}>
           <div className="col-auto">
             <div className="form-group">
-              <label for="exampleInputEmail1">Email</label>
+              <label >Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -99,7 +84,7 @@ class Login extends React.Component {
               </small>
             </div>
             <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label >Password</label>
               <input
                 type="password"
                 className="form-control"

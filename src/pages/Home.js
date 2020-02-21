@@ -12,7 +12,9 @@ class Home extends React.Component{
     render(){
         return(
         <>
+        
         <NavBar />
+        <h1>home</h1>
         <MovieContent/>
         </>
         )

@@ -16,6 +16,7 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleChange(event) {
     // console.log(event.target.value );
     // console.log(event.target.name );
@@ -38,27 +39,37 @@ class Login extends React.Component {
       
     })
     .then(function(myJson) {
-      console.log(myJson);
-      // var data = JSON.parse(myJson);
-      // console.log("DATA", data);
-      // var jsonCant = JSON.stringify( myJson.lenght);
 
-      const {users} = this.state;
-      this.setState({
-        users: myJson
-      })
+       var data = myJson;
+      console.log("DATA", data);
 
-      console.log("ACAAAA", users);
+      data.map((datos) => {
+        this.users.setState({
+          users: datos.email,
+          users: datos.password
+        })
+
+
+        console.log("DATOS", this.state.users);
+      })}
       
-      /// https://www.google.com/search?q=setstate+json&oq=setstate+json&aqs=chrome..69i57j0l7.3505j0j7&sourceid=chrome&ie=UTF-8
-      /// https://www.freecodecamp.org/forum/t/reactjs-using-setstate-to-update-a-single-property-on-an-object/146772/3
-      
-      
-    });
+
+      // const personas = this.users.map(data);
+      // const {users} = this.state;
+      // this.setState({
+      //   users: myJson
+      // })
 
 
-    console.log("Ingreso concedido");
-  }
+    //   console.log("ACAAAA", personas);
+      
+    // });
+
+
+    )}
+
+
+
 
   render() {
     return (

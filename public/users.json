@@ -1,5 +1,7 @@
 [
     { "email": "garciapablo838@gmail.com", "password": "123456" },
-    { "email": "lucho@gmail.com", "password": "hola" }
+    { "email": "lucho@gmail.com", "password": "hola" },
+    { "email": "pepe@gmail.com", "password": "holaa" },
+    { "email": "cami@gmail.com", "password": "holaaa" }
   ]
 

@@ -42,7 +42,7 @@ class Login extends React.Component {
       // console.log("Email", users[0].email);
       users.forEach( user  => {
         if (user.email === this.state.email && user.password === this.state.password)
-          this.state.isLogin = true
+          this.setState({isLogin : true});
       });
     })
 
@@ -50,18 +50,11 @@ class Login extends React.Component {
 
 
 
-
-    componentWillMount() {
-    }
-      
-
-
-
-
-
   render() {
-    if ( this.state.isLogin )
+    
+    if ( this.state.isLogin ){
       return <Redirect to={'/'} />
+    }
     return (
       <>
         <NavBar />

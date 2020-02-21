@@ -59,6 +59,7 @@ class Login extends React.Component {
     return (
       <>
         <NavBar />
+
         <div className='father-container' >
           {/* style = {{backgroundImage: `url(${backImg})`}} */}
         <form className="form-class" onSubmit={this.handleSubmit}>
@@ -75,12 +76,14 @@ class Login extends React.Component {
                 required
                 name="email"
                 onChange={this.handleChange}
+
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
               </small>
             </div>
             <div className="form-group">
+
               <label className="title" >Password</label>
               <input
                 type="password"
@@ -93,6 +96,7 @@ class Login extends React.Component {
               />
             </div>
             <button type="submit" className="btn">
+
               Ingresar
             </button>
           </div>

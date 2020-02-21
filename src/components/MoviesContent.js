@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "../components/storage/LocalStorage.js"
 
 export default class MovieContent extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class MovieContent extends React.Component {
 
 
   performSearch = async searchTerm => {
+
     console.log("Performing search");
 
     const urlString =
@@ -42,10 +44,21 @@ export default class MovieContent extends React.Component {
       this.setState({
         results
       });
+
+      
+    
+      
+      
+
     } catch (err) {
       console.error("fail");
     }
   };
+
+  handleUpdatedSearch(){
+    const searchTerm = this.props.search;
+    this.performSearch(searchTerm);
+  }
 
   render() {
     const { results } = this.state;

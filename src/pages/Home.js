@@ -20,7 +20,6 @@ class Home extends React.Component {
         <NavBar
           onSearch={(e)=> this.handleSearch(e.target.value) }
           search={this.state.search}
-          onValueChange={Children.handleSearchValue}
         />
         <MovieContent search={this.state.search}/>
       </>

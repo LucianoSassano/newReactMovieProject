@@ -19,6 +19,7 @@ class Navbar extends React.Component {
                 value={this.props.search}
                 onChange={this.props.onSearch}
               />
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <button
               className="navbar-toggler"

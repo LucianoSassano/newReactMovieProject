@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import "../pages/Login.css";
 import { Redirect } from "react-router-dom"
+import backImg from "../images/background2.jpg"
 
 class Login extends React.Component {
   constructor(props) {
@@ -58,11 +59,14 @@ class Login extends React.Component {
     return (
       <>
         <NavBar />
+        <div className='father-container' >
+          {/* style = {{backgroundImage: `url(${backImg})`}} */}
         <form className="form-class" onSubmit={this.handleSubmit}>
-          <div className="col-auto">
+          <div className="col-auto" >
             <div className="form-group">
-              <label >Email</label>
+              <label className="title">Email</label>
               <input
+                
                 type="email"
                 className="form-control"
                 value={this.state.email}
@@ -77,7 +81,7 @@ class Login extends React.Component {
               </small>
             </div>
             <div className="form-group">
-              <label >Password</label>
+              <label className="title" >Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -88,11 +92,12 @@ class Login extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               Ingresar
             </button>
           </div>
         </form>
+        </div>
       </>
     );
   }

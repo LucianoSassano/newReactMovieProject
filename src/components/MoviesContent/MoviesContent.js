@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Movies from "../Movies";
+import Movies from "../Movies/Movies";
 import "../MoviesContent/MoviesContent.css"
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import MovieLogo from "../images/movie-logo.png";
+import MovieLogo from "../../images/movie-logo.png";
 
 class Navbar extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 [
-    { "email": "garciapablo838@gmail.com", "password": "123456" },
-    { "email": "lucho@gmail.com", "password": "hola" },
-    { "email": "pepe@gmail.com", "password": "holaa" },
-    { "email": "cami@gmail.com", "password": "holaaa" }
+    { "email": "admin1@gmail.com", "password": "admin1" ,"Admin": "true" },
+    { "email": "admin2@gmail.com", "password": "admin2" , "Admin" : "true"},
+    { "email": "user1@gmail.com", "password": "pass1", "Admin" :"false"},
+    { "email": "user2@gmail.com", "password": "pass2", "Admin":"false" }
   ]
 

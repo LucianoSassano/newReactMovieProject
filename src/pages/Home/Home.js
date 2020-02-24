@@ -1,7 +1,7 @@
 import React, { Children, useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
-import MovieContent from "../components/MoviesContent/MoviesContent";
-import { getBySearch } from "../services/movieApi";
+import NavBar from "../../components/NavBar/NavBar";
+import MovieContent from "../../components/MoviesContent/MoviesContent"
+import { getBySearch } from "../../services/movieApi";
 
 const Home = () => {
   const [search, setSearch] = useState("avengers");

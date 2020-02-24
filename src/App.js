@@ -1,7 +1,7 @@
 import React from "react";
-import Admin from "./pages/Admin";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Admin from "./pages/Admin/Admin";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";

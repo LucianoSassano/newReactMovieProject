@@ -10,9 +10,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background: black;
-  background: -webkit-gradient(linear, left top, right top, from(black), color-stop(27%, rgba(4, 4, 83, 0.902398)), to(#03313b));
-  background: linear-gradient(90deg, black 0%, rgba(4, 4, 83, 0.902398) 27%, #03313b 100%);
+  background: #9C9583;
 }
 
 .father-container .form-class {
@@ -24,11 +22,12 @@
 
 .father-container .form-class .title {
   font-size: 25px;
-  color: rgba(10, 255, 25, 0.89);
+  
 }
 
 .father-container .form-class .btn {
-  background-color: rgba(32, 255, 25, 0.89);
+  background-color: rgb(33,37,41);
   font-size: 20px;
+  color: #9C9583;
 }
 /*# sourceMappingURL=Login.css.map */

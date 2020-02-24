@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import Movies from "./Movies";
+import Movies from "../Movies";
+import "../MoviesContent/MoviesContent.css"
 
 
 export default class MovieContent extends React.Component {

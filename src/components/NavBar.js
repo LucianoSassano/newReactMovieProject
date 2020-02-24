@@ -1,7 +1,6 @@
 import React from "react";
 import MovieLogo from "../images/movie-logo.png";
 
-
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -27,12 +26,6 @@ class Navbar extends React.Component {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
             </form>
             <button
               className="navbar-toggler"

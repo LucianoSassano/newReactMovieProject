@@ -1,6 +1,7 @@
 import React from "react";
 import MovieLogo from "../images/movie-logo.png";
 
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-inverse bg-inverse navbar-dark bg-dark">
           <div className="container">
             <a className="navbar-brand" href="./Home">
               <img src={MovieLogo} width="50" height="50" alt="page icon"></img>

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Movies from "./Movies";
-import { getBySearch } from "../services/movieApi";
+
 
 export default class MovieContent extends React.Component {
   constructor(props) {

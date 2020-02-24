@@ -4,55 +4,37 @@ import MovieContent from "../components/MoviesContent";
 import { getBySearch } from "../services/movieApi";
 
 const Home = () => {
-  const [ search, setSearch ] = useState("avengers")
-  const [ results, setResults ] = useState( [] )
+  const [search, setSearch] = useState("avengers");
+  const [results, setResults] = useState([]);
 
-   
-  // componentDidMount {
-
-  //   getBySearch(search)
-  //     .then(results => {
-  //       console.log("result", results);
-  //       setResults( results );
-  //       const jsonMovie = JSON.stringify(results)
-  //       localStorage.setItem("movies",jsonMovie)
-  //     })
-  //     .catch(err => console.log(err));
-  // }
-  
-  useEffect( () => {
+  useEffect(() => {
     getBySearch(search)
       .then(results => {
-        setResults( results );
-        const jsonMovie = JSON.stringify(results)
-        localStorage.setItem("movies",jsonMovie)
+        setResults(results);
+        const jsonMovie = JSON.stringify(results);
+        localStorage.setItem("movies", jsonMovie);
       })
       .catch(err => console.log(err));
-  }, [ search ] )
+  }, [search]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     console.log(e.target.value);
     //this.setState({ search: value });
-  }
+  };
 
-  const handleSearch = (e) => {
-    
-    console.log(e.target.value)
+  const handleSearch = e => {
+    console.log(e.target.value);
     const currentVal = e.target.value;
-    setSearch(currentVal)
-  }
+    setSearch(currentVal);
+  };
 
-
-    return (
-      <>
-        <NavBar
-          onSubmit={handleSubmit}
-          onChange ={handleSearch}
-        />
-        <MovieContent results={results} />
-      </>
-    );
-}
+  return (
+    <>
+      <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
+      <MovieContent results={results} />
+    </>
+  );
+};
 
 export default Home;

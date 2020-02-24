@@ -21,6 +21,7 @@ const Home = () => {
     e.preventDefault();
     console.log(e.target.value);
     //this.setState({ search: value });
+
   };
 
   const handleSearch = e => {
@@ -36,5 +37,6 @@ const Home = () => {
     </>
   );
 };
+
 
 export default Home;

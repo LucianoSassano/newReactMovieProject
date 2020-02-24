@@ -8,6 +8,7 @@ export default class MovieContent extends React.Component {
     this.state = {
       page: [],
     };
+
   }
 
  

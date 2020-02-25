@@ -1,18 +1,26 @@
 import React, { Children, useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import MovieContent from "../../components/MoviesContent/MoviesContent"
-import { getBySearch } from "../../services/movieApi";
+import Carousel from "../../components/Carousel/Carousel";
+import MovieContent from "../../components/MoviesContent/MoviesContent";
+import { getBySearch, getPopular } from "../../services/movieApi";
 
 const Home = () => {
   const [search, setSearch] = useState("avengers");
   const [results, setResults] = useState([]);
+  const [popular, setPopular] = useState([]);
+
+  useEffect(() => {
+    getPopular()
+      .then(results => {
+        setPopular(results);
+      })
+      .catch(err => console.log(err));
+  }, [search]);
 
   useEffect(() => {
     getBySearch(search)
       .then(results => {
         setResults(results);
-        const jsonMovie = JSON.stringify(results);
-        localStorage.setItem("movies", jsonMovie);
       })
       .catch(err => console.log(err));
   }, [search]);
@@ -21,7 +29,6 @@ const Home = () => {
     e.preventDefault();
     console.log(e.target.value);
     //this.setState({ search: value });
-
   };
 
   const handleSearch = e => {
@@ -33,10 +40,10 @@ const Home = () => {
   return (
     <>
       <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
+      <Carousel popular={popular} />
       <MovieContent results={results} />
     </>
   );
 };
-
 
 export default Home;

@@ -26,8 +26,6 @@ class Login extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    this.state.email = event.target.value;
-    this.state.password = event.target.value;
   }
 
   handleSubmit(event) {
@@ -45,13 +43,13 @@ class Login extends React.Component {
           ) {
             this.setState({ isLogin: true });
             this.setState({ isAdmin: true });
-          }else if(
+          } else if (
             user.email === this.state.email &&
             user.password === this.state.password &&
             user.admin === "false"
-          ){
-            this.setState({isLogin :true});
-            this.setState({isAdmin: false})
+          ) {
+            this.setState({ isLogin: true });
+            this.setState({ isAdmin: false });
           }
         });
       });

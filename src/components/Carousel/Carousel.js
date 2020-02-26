@@ -2,10 +2,30 @@ import React from "react";
 
 export default class Carousel extends React.Component {
 
-  mostrarCarousel() {
+
+
+  handleClickNext(event){
+    this.mostrarCarousel(true)
+  }
+
+  handleClickPrev(event){
+    this.mostrarCarousel(false)
+  }
+
+  mostrarCarousel(btnClicked) {
+
+    const i = 0;
+
+    if (btnClicked == true)
+    {
+      i=i+1
+    } else
+    {
+      i=i-1
+    }
 
     // console.log( "carrusel", this.props.popular)
-    let arr = this.props.popular.slice(0,3)   
+    let arr = this.props.popular.slice(i,3)   
     console.log("arr", arr);
     
     return arr.map( (movie) => {
@@ -22,8 +42,6 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-
-    
 
     return (
       <div>
@@ -49,6 +67,8 @@ export default class Carousel extends React.Component {
             href="#carouselExampleIndicators"
             role="button"
             data-slide="prev"
+            id="btnPrev"
+            onClick={this.handleClickPrev}
             >
             <span
               className="carousel-control-prev-icon"
@@ -61,6 +81,8 @@ export default class Carousel extends React.Component {
             href="#carouselExampleIndicators"
             role="button"
             data-slide="next"
+            id="btnNext"
+            onClick={this.handleClickNext}
             >
             <span
               className="carousel-control-next-icon"

@@ -27,6 +27,7 @@ export default class MovieContent extends React.Component {
               poster_path={movie.poster_path}
               overview={movie.overview}
               release_date={movie.release_date}
+              id = {movie.id}
             />
           ))}
       </div>

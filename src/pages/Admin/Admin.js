@@ -8,7 +8,7 @@ class Admin extends React.Component {
         <NavBar />
         <form>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email</label>
+            <label for="exampleInputEmail1"></label>
             <input
               type="email"
               className="form-control"

@@ -1,9 +1,23 @@
 import React from "react";
+import "../Movies/Movies.css"
+
+
 
 export default class Movies extends React.Component {
   constructor(props) {
     super(props);
+
+    
   }
+
+  viewMovie(){
+    console.log("trying to view movie");
+    const url = "https://www.themoviedb.org/movie/" + this.props.id
+    window.location.href = url;
+    
+    
+  }
+  
 
   render() {
     return (
@@ -26,6 +40,7 @@ export default class Movies extends React.Component {
                     {this.props.release_date}
                   </small>
                 </p>
+                <input type="button" onClick={this.viewMovie.bind(this)} value="view"></input>
               </div>
             </div>
           </div>

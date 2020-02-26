@@ -40,9 +40,19 @@ class Login extends React.Component {
         users.forEach(user => {
           if (
             user.email === this.state.email &&
-            user.password === this.state.password
-          )
+            user.password === this.state.password &&
+            user.admin === "true"
+          ) {
             this.setState({ isLogin: true });
+            this.setState({ isAdmin: true });
+          }else if(
+            user.email === this.state.email &&
+            user.password === this.state.password &&
+            user.admin === "false"
+          ){
+            this.setState({isLogin :true});
+            this.setState({isAdmin: false})
+          }
         });
       });
   }
@@ -50,8 +60,8 @@ class Login extends React.Component {
   render() {
     if (this.state.isLogin === true && this.state.isAdmin === false) {
       return <Redirect to={"/home"} />;
-    }else if(this.state.isLogin === true && this.state.isAdmin === true){
-      return <Redirect to = {"/admin"} />;
+    } else if (this.state.isLogin === true && this.state.isAdmin === true) {
+      return <Redirect to={"/admin"} />;
     }
     return (
       <>

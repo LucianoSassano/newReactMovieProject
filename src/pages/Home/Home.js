@@ -5,7 +5,7 @@ import MovieContent from "../../components/MoviesContent/MoviesContent";
 import { getBySearch, getPopular } from "../../services/movieApi";
 
 const Home = () => {
-  const [search, setSearch] = useState("avengers");
+  const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [popular, setPopular] = useState([]);
 
@@ -17,18 +17,21 @@ const Home = () => {
       .catch(err => console.log(err));
   }, [search]);
 
+  const filterResults = () => {
+    let localStorageMovies = localStorage.getItem("movies");
+    localStorageMovies = JSON.parse(localStorageMovies);
+
+    return localStorageMovies.filter(
+      movie => movie.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+    );
+  };
+
   useEffect(() => {
-    getBySearch(search)
-      .then(results => {
-        setResults(results);
-      })
-      .catch(err => console.log(err));
+    setResults(filterResults);
   }, [search]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target.value);
-    //this.setState({ search: value });
   };
 
   const handleSearch = e => {

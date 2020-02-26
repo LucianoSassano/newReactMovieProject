@@ -2,18 +2,13 @@ import React from "react";
 import "../Movies/Movies.css";
 
 export default class MoviesAdmin extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: []
-    };
-  }
-
   makeAvailable() {
-    console.log("available" + this.props.title);
-    this.setState({ movies: this.props });
-    console.log(this.state);
-    //una vez logrado setear la peli en el state , escribir en el local storage
+    const localStorageMovies = JSON.parse(localStorage.getItem("movies"));
+    let jsonMovies = [];
+    if (Array.isArray(localStorageMovies)) jsonMovies = localStorageMovies;
+    jsonMovies.push(this.props);
+    console.log(jsonMovies);
+    localStorage.setItem("movies", JSON.stringify(jsonMovies));
   }
 
   render() {

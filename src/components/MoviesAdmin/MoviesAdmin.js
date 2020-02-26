@@ -1,8 +1,19 @@
 import React from "react";
+import "../Movies/Movies.css";
 
-export default class Movies extends React.Component {
+export default class MoviesAdmin extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      movies: []
+    };
+  }
+
+  makeAvailable() {
+    console.log("available" + this.props.title);
+    this.setState({ movies: this.props });
+    console.log(this.state);
+    //una vez logrado setear la peli en el state , escribir en el local storage
   }
 
   render() {
@@ -26,6 +37,11 @@ export default class Movies extends React.Component {
                     {this.props.release_date}
                   </small>
                 </p>
+                <input
+                  type="button"
+                  onClick={this.makeAvailable.bind(this)}
+                  value="make available"
+                ></input>
               </div>
             </div>
           </div>

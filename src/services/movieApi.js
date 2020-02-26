@@ -9,6 +9,7 @@ async function getBySearch(searchTerm) {
     const response = await fetch(urlString);
     const resJson = response.json();
     const { results } = await resJson;
+    
 
     return results;
   } catch (err) {
@@ -34,16 +35,18 @@ async function getLatest() {
 }
 
 async function getPopular() {
-  console.log("Performing search");
+  console.log("Performing popular search");
 
   const urlString =
-    "https://api.themoviedb.org/3/search/movie/popular?api_key=16e4c7896761f5945c9296a93ce5703f&language=en-US";
+    "https://api.themoviedb.org/3/movie/popular?api_key=16e4c7896761f5945c9296a93ce5703f";
 
   try {
     const response = await fetch(urlString);
     const resJson = response.json();
     const { results } = await resJson;
-
+    console.log("popular")
+    console.log(results);
+    
     return results;
   } catch (err) {
     console.error("fail");

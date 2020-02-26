@@ -1,0 +1,30 @@
+.father-container {
+  display: flex;
+  max-width: 1920px;
+  width: 100%;
+  justify-content: center;
+  max-height: 1080px;
+  height: 100%;
+  position: fixed;
+  background: #9c9583;
+  font-family: 'Oswald';
+  align-items: center;
+
+
+  .form-class {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+
+    .title {
+      font-size: 25px;
+      color: rgb(31, 37, 41);
+    }
+    .btn {
+      background-color: rgb(31, 37, 41);
+      color: white;
+      font-size: 20px;
+    }
+  }
+}

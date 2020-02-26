@@ -1,8 +1,8 @@
-import Movies from "../Movies/Movies";
 import "../MoviesContent/MoviesContent.css";
-import React from "react"
+import React from "react";
+import MoviesAdmin from "../MoviesAdmin/MoviesAdmin";
 
-export default class MovieContent extends React.Component {
+export default class MoviesAdminContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ export default class MovieContent extends React.Component {
       <div className="container">
         {results &&
           results.map((movie, key) => (
-            <Movies
+            <MoviesAdmin
               key={key}
               title={movie.title}
               poster_path={movie.poster_path}

@@ -1,13 +1,7 @@
 import React from "react";
 
 export default class Carousel extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-  
-    
     return (
       <div>
         <div
@@ -28,7 +22,8 @@ export default class Carousel extends React.Component {
             <div className="carousel-item active">
               <img
                 src={
-                  "https://image.tmdb.org/t/p/original" + this.props.popular.poster_path
+                  "https://image.tmdb.org/t/p/original" +
+                  this.props.popular.poster_path
                 }
                 className="d-block w-100"
                 alt="..."
@@ -37,7 +32,8 @@ export default class Carousel extends React.Component {
             <div className="carousel-item">
               <img
                 src={
-                  "https://image.tmdb.org/t/p/original" + this.props.popular.poster_path
+                  "https://image.tmdb.org/t/p/original" +
+                  this.props.popular.poster_path
                 }
                 className="d-block w-100"
                 alt="..."
@@ -46,7 +42,8 @@ export default class Carousel extends React.Component {
             <div className="carousel-item">
               <img
                 src={
-                  "https://image.tmdb.org/t/p/original" + this.props.popular.poster_path
+                  "https://image.tmdb.org/t/p/original" +
+                  this.props.popular.poster_path
                 }
                 className="d-block w-100"
                 alt="..."

@@ -1,36 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
+import { getBySearch } from "../../services/movieApi";
+import MoviesAdminContent from "../../components/MoviesAdminContent/MoviesAdminContent"
 
-class Admin extends React.Component {
-  render() {
-    return (
-      <>
-        <NavBar />
-        <form>
-          <div className="form-group">
-            <label for="exampleInputEmail1"></label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Ingresar
-          </button>
-        </form>
-      </>
-    );
-  }
-}
+const Admin = () => {
+  const [search, setSearch] = useState("avengers");
+  const [results, setResults] = useState([]);
+
+
+  useEffect(() => {
+    getBySearch(search)
+      .then(results => {
+        setResults(results);
+      })
+      .catch(err => console.log(err));
+  }, [search]);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(e.target.value);
+    //this.setState({ search: value });
+  };
+
+  const handleSearch = e => {
+    console.log(e.target.value);
+    const currentVal = e.target.value;
+    setSearch(currentVal);
+  };
+
+  return (
+    <>
+      <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
+      <MoviesAdminContent results={results} />
+    </>
+  );
+};
 
 export default Admin;

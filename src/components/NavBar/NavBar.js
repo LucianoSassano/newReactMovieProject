@@ -2,10 +2,6 @@ import React from "react";
 import MovieLogo from "../../images/movie-logo.png";
 
 class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <>

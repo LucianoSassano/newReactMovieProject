@@ -39,17 +39,19 @@ class Login extends React.Component {
           if (
             user.email === this.state.email &&
             user.password === this.state.password &&
-            user.admin === "true"
+            user.admin === true
           ) {
-            this.setState({ isLogin: true });
-            this.setState({ isAdmin: true });
+            console.log("admin");
+
+            this.setState({ isLogin: true, isAdmin: true });
           } else if (
             user.email === this.state.email &&
             user.password === this.state.password &&
-            user.admin === "false"
+            user.admin === false
           ) {
-            this.setState({ isLogin: true });
-            this.setState({ isAdmin: false });
+            console.log("user");
+
+            this.setState({ isLogin: true, isAdmin: false });
           }
         });
       });
@@ -58,7 +60,8 @@ class Login extends React.Component {
   render() {
     if (this.state.isLogin === true && this.state.isAdmin === false) {
       return <Redirect to={"/home"} />;
-    } else if (this.state.isLogin === true && this.state.isAdmin === true) {
+    }
+    if (this.state.isLogin === true && this.state.isAdmin === true) {
       return <Redirect to={"/admin"} />;
     }
     return (

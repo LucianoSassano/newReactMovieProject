@@ -45,7 +45,7 @@ async function getPopular() {
     const resJson = response.json();
     const { results } = await resJson;
     console.log("popular")
-    console.log(results);
+    // console.log(results);
     
     return results;
   } catch (err) {

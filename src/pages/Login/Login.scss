@@ -1,29 +1,30 @@
-.father-container{
-    display: flex;
-    max-width: 1920px;
-    width: 100%;
-    max-height: 1080px;
-    height: 100%;
-    position: fixed;
-    background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-position: center;
-   background: rgb(0,0,0);
-   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,4,83,0.9023984593837535) 27%, rgba(3,49,59,1) 100%);
-   
-   .form-class{
-        width: 100%;
-        max-width: 330px;
-        padding: 15px;
-        margin: auto;
+.father-container {
+  display: flex;
+  max-width: 1920px;
+  width: 100%;
+  justify-content: center;
+  max-height: 1080px;
+  height: 100%;
+  position: fixed;
+  background: #9c9583;
+  font-family: 'Oswald';
+  align-items: center;
 
-        .title{
-        font-size: 25px;
-        color: rgba(10, 350, 25, 0.89);
-        }
-    .btn{
-        background-color: rgba(32, 280, 25, 0.89);
-        font-size: 20px;
+
+  .form-class {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+
+    .title {
+      font-size: 25px;
+      color: rgb(31, 37, 41);
     }
-}
+    .btn {
+      background-color: rgb(31, 37, 41);
+      color: white;
+      font-size: 20px;
+    }
+  }
 }

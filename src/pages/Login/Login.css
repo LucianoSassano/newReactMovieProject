@@ -4,13 +4,17 @@
   display: flex;
   max-width: 1920px;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-height: 1080px;
   height: 100%;
   position: fixed;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background: #9C9583;
+  background: #9c9583;
+  font-family: 'Oswald';
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .father-container .form-class {
@@ -22,13 +26,12 @@
 
 .father-container .form-class .title {
   font-size: 25px;
-  
+  color: #1f2529;
 }
 
 .father-container .form-class .btn {
-  background-color: rgb(31, 37, 41);
-  font-size: 20px;
+  background-color: #1f2529;
   color: white;
-  margin-top: 15px;
+  font-size: 20px;
 }
 /*# sourceMappingURL=Login.css.map */

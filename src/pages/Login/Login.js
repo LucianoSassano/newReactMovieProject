@@ -3,7 +3,6 @@ import NavBar from "../../components/NavBar/NavBar";
 import "../Login/Login.css";
 import { Redirect } from "react-router-dom";
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +12,7 @@ class Login extends React.Component {
       email: "",
       password: "",
       isLogin: false,
-      isAdmin:false
+      isAdmin: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -50,7 +49,9 @@ class Login extends React.Component {
 
   render() {
     if (this.state.isLogin === true && this.state.isAdmin === false) {
-      return <Redirect to={"/"} />;
+      return <Redirect to={"/home"} />;
+    }else if(this.state.isLogin === true && this.state.isAdmin === true){
+      return <Redirect to = {"/admin"} />;
     }
     return (
       <>

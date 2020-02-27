@@ -1,6 +1,7 @@
 import "../MoviesContent/MoviesContent.css";
 import React from "react";
 import MoviesAdmin from "../MoviesAdmin/MoviesAdmin";
+import AdminAdd from "../AdminAdd/AdminAdd";
 
 export default class MoviesAdminContent extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class MoviesAdminContent extends React.Component {
               id={movie.id}
             />
           ))}
+        <AdminAdd/>
       </div>
     );
   }

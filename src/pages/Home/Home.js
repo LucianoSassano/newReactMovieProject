@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Carousel from "../../components/Carousel/Carousel";
 import MovieContent from "../../components/MoviesContent/MoviesContent";
-import { getBySearch, getPopular } from "../../services/movieApi";
+import { getPopular } from "../../services/movieApi";
 
 const Home = () => {
   const [search, setSearch] = useState("");

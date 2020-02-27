@@ -9,7 +9,6 @@ async function getBySearch(searchTerm) {
     const response = await fetch(urlString);
     const resJson = response.json();
     const { results } = await resJson;
-    
 
     return results;
   } catch (err) {
@@ -44,9 +43,7 @@ async function getPopular() {
     const response = await fetch(urlString);
     const resJson = response.json();
     const { results } = await resJson;
-    console.log("popular")
-    console.log(results);
-    
+
     return results;
   } catch (err) {
     console.error("fail");

@@ -1,6 +1,12 @@
 import React from "react";
 
 export default class Carousel extends React.Component {
+  slicedArray = () => {
+    let local = this.props.popular.slice(0, 3);
+    console.log(local);
+    return local;
+  };
+
   render() {
     return (
       <div>
@@ -19,36 +25,12 @@ export default class Carousel extends React.Component {
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
+            {this.slicedArray().map((movie, key) => (
+              <div className="carousel-item active">
+                <h2>{"https://image.tmdb.org/t/p/w500" + movie.poster_path}</h2>
+              </div>
+            )
+            )}
           </div>
           <a
             className="carousel-control-prev"

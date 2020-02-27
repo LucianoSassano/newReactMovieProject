@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import { getBySearch } from "../../services/movieApi";
-import MoviesAdminContent from "../../components/MoviesAdminContent/MoviesAdminContent"
+import MoviesAdminContent from "../../components/MoviesAdminContent/MoviesAdminContent";
+import AdminAdd from "../../components/AdminAdd/AdminAdd";
 
 const Admin = () => {
   const [search, setSearch] = useState("avengers");
   const [results, setResults] = useState([]);
-
 
   useEffect(() => {
     getBySearch(search)

@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../../components/NavBar/NavBar";
+
 import "../Login/Login.css";
 import { Redirect } from "react-router-dom";
 
@@ -66,8 +66,6 @@ class Login extends React.Component {
     }
     return (
       <>
-        <NavBar />
-
         <div className="father-container">
           <form className="form-class" onSubmit={this.handleSubmit}>
             <div className="col-auto">

@@ -1,12 +1,13 @@
 .father-container {
   display: flex;
-  max-width: 1920px;
+  max-width: 1600px;
   width: 100%;
   justify-content: center;
-  max-height: 1080px;
+  max-height: 1000px;
   height: 100%;
   position: fixed;
-  background: #9c9583;
+  background-image: url("../../images/background3.jpg");
+  background-size: cover;
   font-family: 'Oswald';
   align-items: center;
 

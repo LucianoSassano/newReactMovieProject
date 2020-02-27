@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import Carousel from "..//../components/Carousel/Carousel"
 
 import MovieContent from "../../components/MoviesContent/MoviesContent";
 import { getPopular } from "../../services/movieApi";
@@ -44,7 +43,7 @@ const Home = () => {
   return (
     <>
       <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
-      <Carousel popular={popular} />
+
       <MovieContent results={results} />
     </>
   );

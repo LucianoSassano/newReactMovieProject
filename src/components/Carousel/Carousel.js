@@ -1,78 +1,66 @@
 import React from "react";
 
 export default class Carousel extends React.Component {
+  mostrarCarousel() {
+    var flag = false;
+
+    // console.log( "carrusel", this.props.popular)
+    let arr = this.props.popular.slice(0, 4);
+    console.log("arr", arr);
+
+    return arr.map(movie => {
+      if (flag == false) {
+        flag = true;
+        return (
+          <div key={movie.id} className="carousel-item active">
+            <img
+              className="imagen-carousel"
+              src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+              alt="..."
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div key={movie.id} className="carousel-item">
+            <img
+              className="imagen-carousel"
+              src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+              className="imagen-carousel"
+              alt="..."
+            />
+          </div>
+        );
+      }
+    });
+  }
+
   render() {
     return (
-      <div>
+      <div className="container">
         <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
+          id="carouselExampleControls"
+          class="carousel slide"
           data-ride="carousel"
         >
-          <ol className="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              className="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  this.props.popular.poster_path
-                }
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-          </div>
+          <div class="carousel-inner">{this.mostrarCarousel()}</div>
           <a
-            className="carousel-control-prev"
-            href="#carouselExampleIndicators"
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
             role="button"
             data-slide="prev"
           >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
           </a>
           <a
-            className="carousel-control-next"
-            href="#carouselExampleIndicators"
+            class="carousel-control-next"
+            href="#carouselExampleControls"
             role="button"
             data-slide="next"
           >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
           </a>
         </div>
       </div>

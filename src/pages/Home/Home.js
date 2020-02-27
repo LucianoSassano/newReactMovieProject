@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Carousel from "../../components/Carousel/Carousel";
 import MovieContent from "../../components/MoviesContent/MoviesContent";
-import { getBySearch, getPopular } from "../../services/movieApi";
+import { getPopular } from "../../services/movieApi";
+import back from "../../images/background2.jpg";
+import "../Home/Home.css"
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -42,9 +44,11 @@ const Home = () => {
 
   return (
     <>
-      <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
-      <Carousel popular={popular} />
-      <MovieContent results={results} />
+      <div className="my-container" style={{ backgroundImage: `url(${back})` }}>
+        <NavBar onSubmit={handleSubmit} onChange={handleSearch} />
+        <Carousel popular={popular} />
+        <MovieContent results={results} />
+      </div>
     </>
   );
 };
